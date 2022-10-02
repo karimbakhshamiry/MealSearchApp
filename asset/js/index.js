@@ -48,7 +48,12 @@ function searchForRecipes() {
 
           resultDiv.innerHTML = recipeHtml;
         } else {
-          resultDiv.innerHTML = `<h1 class='not_found'><span class='confused emoji'>🤔</span> No Result Found for ${ingredient.value}</h1>`;
+          resultDiv.innerHTML = "<span class='confused emoji'>🤔</span>";
+          const notFoundH1Element = document.createElement("h1");
+          notFoundH1Element.className = "not_found";
+          notFoundH1Element.textContent = `No Result Found for ${ingredient.value}`;
+
+          resultDiv.append(notFoundH1Element);
         }
 
         ingredient.value = "";
